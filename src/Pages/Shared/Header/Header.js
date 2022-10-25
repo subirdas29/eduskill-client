@@ -1,9 +1,22 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
 
 
 
 const Header = () => {
+  const {user,logOut} = useContext(AuthContext)
+
+  const logOutBtn= ()=>
+  {
+    logOut()
+    .then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
     return (
       <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -30,8 +43,32 @@ const Header = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn">Login</Link>
-        <Link to="/register" className="btn mx-3">Register</Link>
+
+
+{
+  user?.uid ? 
+  <>
+  <button onClick={logOutBtn} className="btn mx-3">Logout</button>
+  <span>{user?.displayName}</span>
+  <div className="avatar tooltip tooltip-bottom" data-tip={user?.displayName}>
+  <div className="mx-4 w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+    <img src={user?.photoURL}/>
+  </div>
+</div>
+  </>
+  :
+  <>
+  <Link to="/login" className="btn">Login</Link>
+  <Link to="/register" className="btn mx-3">Register</Link>
+  </>
+}
+
+<div className="form-control">
+  <label className="label cursor-pointer">
+    <span className="label-text"></span>
+    <input type="checkbox" className="toggle toggle-accent" checked />
+  </label>
+</div>
       </div>
     </div>
       

@@ -1,6 +1,53 @@
 import React from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider';
+import { FaGoogle, FaGithub } from "react-icons/fa";
+import { GoogleAuthProvider } from "firebase/auth";
 
 const Registration = () => {
+
+    const {signUp,googleSignUp} = useContext(AuthContext)
+    const provider = new GoogleAuthProvider();
+
+   const handleSubmit=(event)=>
+   {
+    event.preventDefault();;
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email,password)
+    signUp(email,password)
+    .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+      console.error('error',error)
+        
+      });
+   }
+
+   const googleHandleSubmit =()=>
+   {
+    googleSignUp(provider)
+    .then((result) => {
+       
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+    
+       
+      }).catch((error) => {
+        
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const email = error.customData.email;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        
+      });
+    
+   }
+
     return (
         <div className="hero min-h-screen bg-base-200">
         <div className="hero-content flex-col ">
@@ -9,7 +56,7 @@ const Registration = () => {
             <p className="py-2"></p>
           </div>
           <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-            <div className="card-body">
+            <form onSubmit={handleSubmit} className="card-body">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Your Name</span>
@@ -38,9 +85,15 @@ const Registration = () => {
                 </label>
               </div>
               <div className="form-control mt-6">
-                <button className="btn btn-primary">Login</button>
+                <button className="btn btn-primary">Register</button>
               </div>
-            </div>
+            </form>
+
+            <button onClick={googleHandleSubmit} className="btn btn-outline btn-success mx-8">
+                        <FaGoogle  className='mr-3 text-xl'></FaGoogle> <p>Google</p> </button>
+                    <button className="btn btn-outline btn-success mx-8 my-3">
+                        <FaGithub className='mr-3 text-xl'></FaGithub> Github</button>
+
           </div>
         </div>
       </div>
