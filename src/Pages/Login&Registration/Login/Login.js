@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
@@ -11,6 +11,7 @@ const Login = () => {
     const {Login,googleSignUp,gitHubSignUp} = useContext(AuthContext)
     const provider = new GoogleAuthProvider();
     const gitProvider= new GithubAuthProvider();
+    const navigator = useNavigate();
 
     const [error,setError] = useState('');
 
@@ -26,7 +27,8 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        <Navigate to="/" />
+        navigator('/')
+        setError('')
       })
       .catch((error) => {
       console.error('error',error)
@@ -89,14 +91,14 @@ const Login = () => {
                             </label>
                             <input type="password" placeholder="password" name="password" className="input input-bordered" />
                             <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                               <p>Don't have an account yet? <Link className='text-blue-500' to='/register'> Sign up for free</Link> </p> 
                             </label>
                             <div>
                                 <p className='text-red-400'>{error}</p>
                             </div>
                             
                         </div>
-                        <div className="form-control mt-6">
+                        <div className="form-control mt-2">
                             <button className="btn btn-primary">Login</button>
                         </div>
                     </form>

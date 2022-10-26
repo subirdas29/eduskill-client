@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { Link } from 'react-router-dom';
 
 const Registration = () => {
 
@@ -92,10 +93,10 @@ const Registration = () => {
                 </label>
                 <input type="text" placeholder="password" name='password' className="input input-bordered" />
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                <p>Already have an account? <Link className='text-blue-500' to='/login'> Log in</Link> </p> 
                 </label>
               </div>
-              <div className="form-control mt-6">
+              <div className="form-control mt-2">
                 <button className="btn btn-primary">Register</button>
               </div>
             </form>
