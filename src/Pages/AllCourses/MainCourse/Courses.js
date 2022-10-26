@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import AllCoursesCard from './AllCoursesCard';
-import CoursesSideBar from './CoursesSideBar/CoursesSideBar';
+import CoursesSideBar from '../CoursesSideBar/CoursesSideBar';
+import AllCoursesCard from '../MainCourse/AllCoursesCard';
+
 
 const Courses = () => {
     const courses = useLoaderData();
@@ -10,13 +11,18 @@ const Courses = () => {
 
     return (
 
-        <div className='flex '>
+        <div className='flex p-20'>
 
             <div className='w-1/4 pe-4 m-6'>
+            <h1 className='text-3xl font-bold'>All Topics</h1>
             
-                     <CoursesSideBar>              
+                   {
+                      courses.map(course => <CoursesSideBar
+                        key={course.id}
+                        course={course}>
 
-                    </CoursesSideBar>
+                    </CoursesSideBar>)
+                   }
                 
                
             </div>

@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Error404 from "../../Pages/404Error/Error404";
+import CheckOut from "../../Pages/AllCourses/CheckOut/CheckOut";
+import CoursesSideBar from "../../Pages/AllCourses/CoursesSideBar/CoursesSideBar";
+import Courses from "../../Pages/AllCourses/MainCourse/Courses";
+import CoursesDetails from "../../Pages/AllCourses/MainCourse/CoursesDetails";
 import Blogs from "../../Pages/Blogs/Blogs";
-import Courses from "../../Pages/AllCourses/Courses";
+
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login&Registration/Login/Login";
@@ -31,7 +35,16 @@ export const router = createBrowserRouter([
       path: '/courses',
       element: <Courses></Courses>,
       loader:() => fetch('http://localhost:5000/courses')
-      
+    },
+    {
+      path:'/course/:id',
+      element:<CoursesDetails></CoursesDetails>,
+      loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`)
+    },
+
+    {
+      path:'/checkout',
+    element:<CheckOut></CheckOut>
     },
     {
       path: '/blog',
