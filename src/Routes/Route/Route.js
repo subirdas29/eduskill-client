@@ -2,7 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Layout/Main";
 import Error404 from "../../Pages/404Error/Error404";
 import Blogs from "../../Pages/Blogs/Blogs";
-import Courses from "../../Pages/Courses/Courses";
+import Courses from "../../Pages/AllCourses/Courses";
 import FAQ from "../../Pages/FAQ/FAQ";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login&Registration/Login/Login";
@@ -29,9 +29,9 @@ export const router = createBrowserRouter([
     },
     {
       path: '/courses',
-      element: <PrivateRoute>
-        <Courses></Courses>
-      </PrivateRoute>
+      element: <Courses></Courses>,
+      loader:() => fetch('http://localhost:5000/courses')
+      
     },
     {
       path: '/blog',

@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FaUser } from "react-icons/fa";
+import DarKAndLightMode from '../DarkAndLightMode/DarKAndLightMode';
 
 
 
@@ -74,14 +75,9 @@ const Header = () => {
                 <FaUser></FaUser>
             }
           
+            <DarKAndLightMode></DarKAndLightMode>
 
-
-        <div className="form-control">
-          <label className="label cursor-pointer">
-            <span className="label-text"></span>
-            <input type="checkbox" className="toggle toggle-accent" checked />
-          </label>
-        </div>
+        
       </div>
     </div>
 

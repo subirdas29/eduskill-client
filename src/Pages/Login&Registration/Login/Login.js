@@ -8,7 +8,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
 
     
-    const {Login,googleSignUp,gitHubSignUp} = useContext(AuthContext)
+    const {Login,googleSignUp,gitHubSignUp,setLoading} = useContext(AuthContext)
     const provider = new GoogleAuthProvider();
     const gitProvider= new GithubAuthProvider();
     const navigate = useNavigate();
@@ -39,7 +39,10 @@ const Login = () => {
       console.error('error',error)
       setError(error.message);
         
-      });
+      })
+      .finally(()=>{
+        setLoading(false);
+      })
 }
    const googleHandleSubmit =()=>
    {
