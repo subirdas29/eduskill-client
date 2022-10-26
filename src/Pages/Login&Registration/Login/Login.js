@@ -3,13 +3,15 @@ import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
 
     
-    const {Login,googleSignUp} = useContext(AuthContext)
+    const {Login,googleSignUp,gitHubSignUp} = useContext(AuthContext)
     const provider = new GoogleAuthProvider();
+    const gitProvider= new GithubAuthProvider();
+
     const [error,setError] = useState('');
 
    const handleSubmit=(event)=>
@@ -45,12 +47,24 @@ const Login = () => {
        
       }).catch((error) => {
         
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.error(error)
         
       });
+    }
+
+    const gitHandleSubmit =()=>
+    {
+        gitHubSignUp(gitProvider)
+        .then((result) => {
+           
+            const credential = GithubAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            
+          }).catch((error) => {
+           console.error(error)
+          });
+        
     }
 
     return (
@@ -89,7 +103,7 @@ const Login = () => {
 
                     <button className="btn btn-outline btn-success mx-8" onClick={googleHandleSubmit}>
                         <FaGoogle  className='mr-3 text-xl'></FaGoogle> <p>Google</p> </button>
-                    <button className="btn btn-outline btn-success mx-8 my-3">
+                    <button className="btn btn-outline btn-success mx-8 my-3 " onClick={gitHandleSubmit}>
                         <FaGithub className='mr-3 text-xl'></FaGithub> Github</button>
                     
                 </div>

@@ -39,10 +39,7 @@ const Registration = () => {
        
       }).catch((error) => {
         
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.customData.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.error(error)
         
       });
     
