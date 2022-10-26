@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
@@ -11,12 +11,16 @@ const Login = () => {
     const {Login,googleSignUp,gitHubSignUp} = useContext(AuthContext)
     const provider = new GoogleAuthProvider();
     const gitProvider= new GithubAuthProvider();
-    const navigator = useNavigate();
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/';
 
     const [error,setError] = useState('');
 
    const handleSubmit=(event)=>
    {
+   
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -25,9 +29,10 @@ const Login = () => {
     Login(email,password)
     .then((result) => {
         const user = result.user;
+        navigate(from, { replace: true })
+        console.log(navigate)
         console.log(user);
         form.reset();
-        navigator('/')
         setError('')
       })
       .catch((error) => {
