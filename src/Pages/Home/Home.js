@@ -1,13 +1,15 @@
 import React from 'react';
-import image from '../bg-01.jpg'
+
+
 
 
 const Home = () => {
     return (
      
-  <div>
-    <div class="bg-contain bg-center ..." style={{ backgroundImage: `url("../bg-01.jpg")` }}></div>
-  </div>
+  <div className='min-h-screen  min-w-full bg-cover bg-fixed' style={{backgroundImage: "url('https://i.ibb.co/HzG82f4/Bg-02.jpg')" }}>
+
+</div>
+ 
      
     );
 };
