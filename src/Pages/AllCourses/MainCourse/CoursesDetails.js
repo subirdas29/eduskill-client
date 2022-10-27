@@ -38,7 +38,7 @@ const CoursesDetails = () => {
     <p>{details}</p>
     <div className="card-actions justify-between">
     
-     <Link to='/checkout'> <button className="btn btn-primary" >Get Premium Access</button></Link>
+     <Link to='/checkout'> <button className="bg-[#00FF7B] hover:bg-[#6440FB] hover:text-white px-6 py-2 rounded text-black text-xl mt-6" >Get Premium Access</button></Link>
     </div>
   </div>
 </div>

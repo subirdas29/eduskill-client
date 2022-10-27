@@ -114,17 +114,17 @@ const Registration = () => {
                 </label>
                 <input type="password" placeholder="password" name='password' className="input input-bordered" />
                 <label className="label">
-                <p>Already have an account? <Link className='text-blue-500' to='/login'> Log in</Link> </p> 
+                <p>Already have an account? <Link className='text-[#6440FB]' to='/login'> Log in</Link> </p> 
                 </label>
               </div>
               <div className="form-control mt-2">
-                <button className="btn btn-primary">Register</button>
+                <button className="bg-[#00FF7B] hover:bg-[#6440FB] hover:text-white py-3 rounded text-black text-xl font-semibold">Register</button>
               </div>
             </form>
 
-            <button onClick={googleHandleSubmit} className="btn btn-outline btn-success mx-8">
+            <button onClick={googleHandleSubmit} className="btn  btn-outline hover:bg-[#6440FB] mx-8">
                         <FaGoogle  className='mr-3 text-xl'></FaGoogle> <p>Google</p> </button>
-                    <button className="btn btn-outline btn-success mx-8 my-3" onClick={gitHandleSubmit}>
+                    <button className="btn btn-outline hover:bg-[#6440FB] mx-8 my-3" onClick={gitHandleSubmit}>
                         <FaGithub className='mr-3 text-xl'></FaGithub> Github</button>
 
           </div>

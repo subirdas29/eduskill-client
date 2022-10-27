@@ -2,9 +2,29 @@ import React from 'react';
 
 const CheckOut = () => {
     return (
-        <div>
-            <h2>this is CheckOut page</h2>
-        </div>
+        
+
+            <div className="stack mx-96 my-52">
+  <div className="card shadow-md bg-primary text-primary-content">
+    <div className="card-body">
+      <h2 className="card-title">Notification 1</h2> 
+      <p>You have 3 unread messages. Tap here to see.</p>
+    </div>
+  </div> 
+  <div className="card shadow bg-primary text-primary-content">
+    <div className="card-body">
+      <h2 className="card-title">Notification 2</h2> 
+      <p>You have 3 unread messages. Tap here to see.</p>
+    </div>
+  </div> 
+  <div className="card shadow-sm bg-primary text-primary-content">
+    <div className="card-body">
+      <h2 className="card-title">Notification 3</h2> 
+      <p>You have 3 unread messages. Tap here to see.</p>
+    </div>
+  </div>
+</div>
+      
     );
 };
 

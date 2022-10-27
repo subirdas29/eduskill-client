@@ -11,7 +11,7 @@ const AllCoursesCard = ({course}) => {
     <h2 className="card-title">{title}</h2>
     <p>{intro}</p>
     <div className="card-actions justify-end">
-      <Link to={`/course/${course.id}`}><button className="btn btn-primary">Show Details</button></Link>
+      <Link to={`/course/${course.id}`}><button className="bg-[#00FF7B] hover:bg-[#6440FB] hover:text-white px-6 py-2 rounded text-black text-xl">Show Details</button></Link>
     </div>
   </div>
 </div>

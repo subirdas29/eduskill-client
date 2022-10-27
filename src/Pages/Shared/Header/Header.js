@@ -52,13 +52,13 @@ const Header = () => {
             {
               user?.uid ?
                 <>
-                  <button onClick={logOutBtn} className="btn mx-3">Logout</button>
+                  <button onClick={logOutBtn} className="btn  btn-outline btn-success hover:bg-[#6440FB] mx-3">Logout</button>
                   <span className='text-white'>{user?.displayName}</span>
                 </>
                 :
                 <>
-                  <Link to="/login" className="btn btn-outline btn-success">Login</Link>
-                  <Link to="/register" className="btn btn-outline btn-success mx-3">Register</Link>
+                  <Link to="/login" className="px-4 py-2 font-semibold rounded bg-[#00FF84]  hover:bg-[#6440FB] hover:text-white">Login</Link>
+                  <Link to="/register" className="px-4 py-2 rounded bg-[#00FF84] font-semibold hover:bg-[#6440FB] hover:text-white mx-4">Register</Link>
                 </>
             }
           
@@ -74,7 +74,7 @@ const Header = () => {
                 </>
                 :
               
-                <FaUser></FaUser>
+                <FaUser className='text-white'></FaUser>
             }
           
             <DarKAndLightMode></DarKAndLightMode>

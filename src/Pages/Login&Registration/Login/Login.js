@@ -79,7 +79,7 @@ const Login = () => {
 
     return (
 
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 ">
             <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl mt-8 font-bold">Login now!</h1>
@@ -99,7 +99,7 @@ const Login = () => {
                             </label>
                             <input type="password" placeholder="password" name="password" className="input input-bordered" />
                             <label className="label">
-                               <p>Don't have an account yet? <Link className='text-blue-500' to='/register'> Sign up for free</Link> </p> 
+                               <p>Don't have an account yet? <Link className='text-[#6440FB]' to='/register'> Sign up for free</Link> </p> 
                             </label>
                             <div>
                                 <p className='text-red-400'>{error}</p>
@@ -107,13 +107,13 @@ const Login = () => {
                             
                         </div>
                         <div className="form-control mt-2">
-                            <button className="btn btn-primary">Login</button>
+                            <button className="bg-[#00FF7B] hover:bg-[#6440FB] hover:text-white py-3 rounded text-black text-xl font-semibold">Login</button>
                         </div>
                     </form>
 
-                    <button className="btn btn-outline btn-success mx-8" onClick={googleHandleSubmit}>
+                    <button onClick={googleHandleSubmit} className="btn  btn-outline hover:bg-[#6440FB] mx-8">
                         <FaGoogle  className='mr-3 text-xl'></FaGoogle> <p>Google</p> </button>
-                    <button className="btn btn-outline btn-success mx-8 my-3 " onClick={gitHandleSubmit}>
+                    <button className="btn btn-outline hover:bg-[#6440FB] mx-8 my-3" onClick={gitHandleSubmit}>
                         <FaGithub className='mr-3 text-xl'></FaGithub> Github</button>
                     
                 </div>

@@ -10,7 +10,7 @@ const CoursesSideBar = ({course}) => {
         <div>
 
 
-<ol className="menu bg-base-200 w-56 rounded-box my-4">
+<ol className="menu bg-base-200 w-56 rounded-box border-2 my-4 shadow-lg">
   <li>
   <Link to={`/course/${course.id}`}>
 
