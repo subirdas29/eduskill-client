@@ -33,8 +33,16 @@ const Header = () => {
             <li className='text-white hover:text-[#00FF84]'><Link to='/faq'>FAQ</Link></li>
           </ul>
         </div>
+        
+          <div className='flex ml-4'>
+          <img className='w-30 h-10' src="https://i.ibb.co/PZBYZdC/png-clipart-computer-icons-professional-certification-business-course-certificates-blue-people-remov.png" alt="" />
        
-        <Link to='/' className=" text-3xl text-[#00FF84] ml-6">EduSkill</Link>
+        
+       <Link to='/' className=" text-3xl text-[#00FF84] ">EduSkill</Link>
+          </div>
+        
+       
+        
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal p-0">
