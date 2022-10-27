@@ -34,12 +34,12 @@ export const router = createBrowserRouter([
     {
       path: '/courses',
       element: <Courses></Courses>,
-      loader:() => fetch('http://localhost:5000/courses')
+      loader:() => fetch('https://eduskill-server.vercel.app/courses')
     },
     {
       path:'/course/:id',
       element:<CoursesDetails></CoursesDetails>,
-      loader:({params})=>fetch(`http://localhost:5000/course/${params.id}`)
+      loader:({params})=>fetch(`https://eduskill-server.vercel.app/course/${params.id}`)
     },
 
     {
