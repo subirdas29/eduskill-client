@@ -11,11 +11,12 @@ const Courses = () => {
 
     return (
 
-        <div className='flex p-20'>
+        <div className='flex p-20 '>
 
-            <div className='w-1/4 pe-4 m-6'>
-            <h1 className='text-3xl font-bold'>All Topics</h1>
+            <div className='w-1/4 pe-4 m-6  md:hidden lg:block'>
+            <h1 className='text-3xl font-bold text-center mb-6'>All Topics</h1>
             
+                   <div className='border p-6 rounded'>
                    {
                       courses.map(course => <CoursesSideBar
                         key={course.id}
@@ -23,6 +24,7 @@ const Courses = () => {
 
                     </CoursesSideBar>)
                    }
+                   </div>
                 
                
             </div>

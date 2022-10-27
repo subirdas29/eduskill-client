@@ -8,11 +8,20 @@ const CoursesSideBar = ({course}) => {
     return (
         
         <div>
-        <ul>
-          <li>
-          <Link to={`/course/${course.id}`}>{name}</Link>
-          </li>
-        </ul>
+
+
+<ol className="menu bg-base-200 w-56 rounded-box my-4">
+  <li>
+  <Link to={`/course/${course.id}`}>
+
+<input className="mr-3 "type="radio" name='name' value={`${name}`} checked />
+{name}
+
+</Link>
+  </li>
+</ol>
+
+       
 
         </div>
     );
