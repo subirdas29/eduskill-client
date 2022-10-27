@@ -26,7 +26,7 @@ const Courses = () => {
                 
                
             </div>
-            <div className=' w-3/4 grid grid-cols-2 gap-10 mx-8' >
+            <div className=' w-3/4 grid lg:grid-cols-2 md:grid-col-1  gap-10 mx-8' >
                
                 {
                     courses.map(course => <AllCoursesCard
