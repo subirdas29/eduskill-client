@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 const CoursesSideBar = ({course}) => {
-  const {name}= course;
+  const {name,id}= course;
  
     return (
         
@@ -14,8 +14,8 @@ const CoursesSideBar = ({course}) => {
   <li>
   <Link to={`/course/${course.id}`}>
 
-<input className="mr-3 "type="radio" name='name' value={`${name}`} checked />
-{name}
+<span className='mx-2'>{id}.</span>
+<span>{name}</span>
 
 </Link>
   </li>
