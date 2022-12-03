@@ -3,7 +3,7 @@ import React from 'react';
 const Home = () => {
     return (
      
-  <div className='min-h-screen  min-w-full bg-cover mb-10' style={{backgroundImage: "url('https://i.ibb.co/DGPFDwH/bg-01.png')" }}>
+  <div className='min-h-screen  min-w-full bg-cover mb-10' style={{backgroundImage: "url('https://i.ibb.co/LzXPb7d/5197240.jpg')" }}>
 <div className='flex sm:flex-col md:flex-col lg:flex-row md:mx-auto p-10'>
 <div className='w-1/2 sm:w-full md:w-full  my-auto mx-auto '>
 <p className='text-white font-bold text-6xl my-6 '>Discover 4500+ Courses from top <span className='text-[#00FF84] text-7xl underline'>Instructor</span> Around the World</p>
